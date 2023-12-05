@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "0251ac2c-9340-4c7e-9d2e-510279240736",
+		"name": "Distribuidores-esqueleto",
+		"description": "Es el API, para introducir la información de ventas en VARMA.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9439136",
+		"_collection_link": "https://restless-water-125490.postman.co/workspace/Distribuidores~e5925043-ed2b-484e-af28-aa8843f24fe3/collection/9439136-0251ac2c-9340-4c7e-9d2e-510279240736?action=share&source=collection_link&creator=9439136"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"item": [
+				{
+					"name": "status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{basicAuthUsername}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{basicAuthPassword}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "{{client_secret}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/ping?checkDependencies=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ping"
+							],
+							"query": [
+								{
+									"key": "checkDependencies",
+									"value": "false",
+									"description": "(Required) Le indicamos si queremos que nos devuelve el estado de las dependencias de la librería"
+								}
+							]
+						},
+						"description": "Esta operación nos va a devolver el estado del api Distribuidores y sus dependencias"
+					},
+					"response": [
+						{
+							"name": "status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "client_id",
+										"value": "{{client_id}}",
+										"type": "text"
+									},
+									{
+										"key": "client_secret",
+										"value": "{{client_secret}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/ping?checkDependencies=false",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ping"
+									],
+									"query": [
+										{
+											"key": "checkDependencies",
+											"value": "false",
+											"description": "(Required) Le indicamos si queremos que nos devuelve el estado de las dependencias de la librería"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "status all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "client_id",
+										"value": "{{client_id}}",
+										"type": "text"
+									},
+									{
+										"key": "client_secret",
+										"value": "{{client_secret}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/ping?checkDependencies=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ping"
+									],
+									"query": [
+										{
+											"key": "checkDependencies",
+											"value": "true",
+											"description": "(Required) Le indicamos si queremos que nos devuelve el estado de las dependencias de la librería"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ventas",
+			"item": [
+				{
+					"name": "load",
+					"item": [
+						{
+							"name": "Cargar ventas",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{basicAuthUsername}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{basicAuthPassword}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) El cliente id que nos proporciona el portal.",
+										"key": "client_id",
+										"value": "{{client_id}}"
+									},
+									{
+										"description": "(Required) El secreto que nos proporciona el portal.",
+										"key": "client_secret",
+										"value": "{{client_secret}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"idSociedadDestinataria\": \"1\",\n    \"idDeDistribuidor\": \"8934024218\",\n    \"idClienteDistribuidor\": \"<string>\",\n    \"cif\": \"<string>\",\n    \"nombreComercial\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"poblacion\": \"<string>\",\n    \"codigoPostal\": \"<string>\",\n    \"idDocumentoExterno\": \"<string>\",\n    \"fechaDocumento\": \"<date>\",\n    \"idArticulo\": \"<string>\",\n    \"cantidad\": \"<integer>\",\n    \"precioTarifa\": \"<double>\",\n    \"precioNeto\": \"<double>\",\n    \"valorVenta\": \"<double>\",\n    \"tipoEntrega\": \"M\",\n    \"pais\": \"ES\",\n    \"fechaOperacion\": \"<date>\",\n    \"idZona\": \"<string>\",\n    \"nombreZona\": \"<string>\",\n    \"idRepresentante\": \"<string>\",\n    \"nombreRepresentante\": \"<string>\",\n    \"factorConversion\": \"<integer>\",\n    \"codigoPromocion\": \"<string>\",\n    \"segmentacion\": \"<string>\",\n    \"numeroDeLinea\": \"<integer>\",\n    \"registerExternalId\": \"<string>\"\n  },\n  {\n    \"idSociedadDestinataria\": \"5\",\n    \"idDeDistribuidor\": \"2321237315\",\n    \"idClienteDistribuidor\": \"<string>\",\n    \"cif\": \"<string>\",\n    \"nombreComercial\": \"<string>\",\n    \"direccion\": \"<string>\",\n    \"poblacion\": \"<string>\",\n    \"codigoPostal\": \"<string>\",\n    \"idDocumentoExterno\": \"<string>\",\n    \"fechaDocumento\": \"<date>\",\n    \"idArticulo\": \"<string>\",\n    \"cantidad\": \"<integer>\",\n    \"precioTarifa\": \"<double>\",\n    \"precioNeto\": \"<double>\",\n    \"valorVenta\": \"<double>\",\n    \"tipoEntrega\": \"M\",\n    \"pais\": \"ES\",\n    \"fechaOperacion\": \"<date>\",\n    \"idZona\": \"<string>\",\n    \"nombreZona\": \"<string>\",\n    \"idRepresentante\": \"<string>\",\n    \"nombreRepresentante\": \"<string>\",\n    \"factorConversion\": \"<integer>\",\n    \"codigoPromocion\": \"<string>\",\n    \"segmentacion\": \"<string>\",\n    \"numeroDeLinea\": \"<integer>\",\n    \"registerExternalId\": \"<string>\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/ventas/load",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"ventas",
+										"load"
+									]
+								},
+								"description": "Cargar ventas"
+							},
+							"response": [
+								{
+									"name": "ventas",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "(Required) El cliente id que nos proporciona el portal.",
+												"key": "client_id",
+												"value": "{{client_id}}"
+											},
+											{
+												"description": "(Required) El secreto que nos proporciona el portal.",
+												"key": "client_secret",
+												"value": "{{client_secret}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[{\n    \"numeroDeLinea\": 0,\n    \"idSociedadDestinataria\": \"1\",\n    \"idDeDistribuidor\": \"0009206184\",\n    \"idZona\": \"0\",\n    \"idRepresentante\": \"0\",\n    \"nombreRepresentante\": \"0\",\n    \"idClienteDistribuidor\": \"10226\",\n    \"cif\": \"P5599039D\",\n    \"nombreComercial\": \"Swearem ipsum dolor sit amet, consectetur\",\n    \"direccion\": \"ANDEN PONIENTE, 207\",\n    \"poblacion\": \"MAHON\",\n    \"codigoPostal\": \"07701\",\n    \"fechaOperacion\": \"2023-08-04\",\n    \"fechaDocumento\": \"2019-05-01\",\n    \"idDocumentoExterno\": \"201905\",\n    \"idArticulo\": \"8425327100172\",\n    \"cantidad\": 6,\n    \"precioTarifa\": 0,\n    \"precioNeto\": 0,\n    \"valorVenta\": 44.4,\n    \"tipoEntrega\": \"V\",\n    \"registerExternalId\": \"F00000000\"\n  },\n  {\n    \"numeroDeLinea\": 1,\n    \"idSociedadDestinataria\": \"1\",\n    \"idDeDistribuidor\": \"0009206184\",\n    \"idZona\": \"0\",\n    \"idRepresentante\": \"0\",\n    \"nombreRepresentante\": \"0\",\n    \"idClienteDistribuidor\": \"10226\",\n    \"cif\": \"P5599039D\",\n    \"nombreComercial\": \"Swearem ipsum dolor sit amet, consectetur\",\n    \"direccion\": \"ANDEN PONIENTE, 207\",\n    \"poblacion\": \"MAHON\",\n    \"codigoPostal\": \"07701\",\n    \"fechaOperacion\": \"2023-08-04\",\n    \"fechaDocumento\": \"2019-05-01\",\n    \"idDocumentoExterno\": \"201905\",\n    \"idArticulo\": \"5012523233129\",\n    \"cantidad\": 6,\n    \"precioTarifa\": 0,\n    \"precioNeto\": 0,\n    \"valorVenta\": 70.62,\n    \"tipoEntrega\": \"V\",\n    \"registerExternalId\": \"F00000001\"\n  },\n  {\n    \"numeroDeLinea\": 2,\n    \"idSociedadDestinataria\": \"1\",\n    \"idDeDistribuidor\": \"0009206184\",\n    \"idZona\": \"0\",\n    \"idRepresentante\": \"0\",\n    \"nombreRepresentante\": \"0\",\n    \"idClienteDistribuidor\": \"10226\",\n    \"cif\": \"P5599039D\",\n    \"nombreComercial\": \"Swearem ipsum dolor sit amet, consectetur\",\n    \"direccion\": \"ANDEN PONIENTE, 207\",\n    \"poblacion\": \"MAHON\",\n    \"codigoPostal\": \"07701\",\n    \"fechaOperacion\": \"2023-08-04\",\n    \"fechaDocumento\": \"2019-05-01\",\n    \"idDocumentoExterno\": \"201905\",\n    \"idArticulo\": \"00000000000000\",\n    \"cantidad\": 12,\n    \"precioTarifa\": 0,\n    \"precioNeto\": 0,\n    \"valorVenta\": 244.44,\n    \"tipoEntrega\": \"V\",\n    \"registerExternalId\": \"F00000002\"\n  },\n  {\n    \"numeroDeLinea\": 3,\n    \"idSociedadDestinataria\": \"1\",\n    \"idDeDistribuidor\": \"0009206184\",\n    \"idZona\": \"0\",\n    \"idRepresentante\": \"0\",\n    \"nombreRepresentante\": \"0\",\n    \"idClienteDistribuidor\": \"10226\",\n    \"cif\": \"P5599039D\",\n    \"nombreComercial\": \"Swearem ipsum dolor sit amet, consectetur\",\n    \"direccion\": \"ANDEN PONIENTE, 207\",\n    \"poblacion\": \"MAHON\",\n    \"codigoPostal\": \"07701\",\n    \"fechaOperacion\": \"2023-08-04\",\n    \"fechaDocumento\": \"2019-05-01\",\n    \"idDocumentoExterno\": \"201905\",\n    \"idArticulo\": \"8425327100141\",\n    \"cantidad\": 6,\n    \"precioTarifa\": 0,\n    \"precioNeto\": 0,\n    \"valorVenta\": 28.74,\n    \"tipoEntrega\": \"V\",\n    \"registerExternalId\": \"F00000003\"\n  }\n  ]",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/ventas/load",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"ventas",
+												"load"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "stocks",
+			"item": [
+				{
+					"name": "load",
+					"item": [
+						{
+							"name": "Cargar stocks",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{basicAuthUsername}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{basicAuthPassword}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) El cliente id que nos proporciona el portal.",
+										"key": "client_id",
+										"value": "{{client_id}}"
+									},
+									{
+										"description": "(Required) El secreto que nos proporciona el portal.",
+										"key": "client_secret",
+										"value": "{{client_secret}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"idDeDistribuidor\": \"1419153993\",\n    \"idSociedadDestinataria\": \"1\",\n    \"anyoStock\": \"8948\",\n    \"idArticulo\": \"<string>\",\n    \"existenciaInicial\": \"<integer>\",\n    \"entradas\": \"<integer>\",\n    \"salidas\": \"<integer>\",\n    \"existenciaFinal\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"mesStock\": \"<integer>\",\n    \"registerExternalId\": \"<string>\"\n  },\n  {\n    \"idDeDistribuidor\": \"0883445249\",\n    \"idSociedadDestinataria\": \"1\",\n    \"anyoStock\": \"8497\",\n    \"idArticulo\": \"<string>\",\n    \"existenciaInicial\": \"<integer>\",\n    \"entradas\": \"<integer>\",\n    \"salidas\": \"<integer>\",\n    \"existenciaFinal\": \"<integer>\",\n    \"id\": \"<string>\",\n    \"mesStock\": \"<integer>\",\n    \"registerExternalId\": \"<string>\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stocks/load",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stocks",
+										"load"
+									]
+								},
+								"description": "Cargar stocks"
+							},
+							"response": [
+								{
+									"name": "Cargar stocks",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "(Required) El cliente id que nos proporciona el portal.",
+												"key": "client_id",
+												"value": "{{client_id}}"
+											},
+											{
+												"description": "(Required) El secreto que nos proporciona el portal.",
+												"key": "client_secret",
+												"value": "{{client_secret}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n  {\n    \"id\": \"0\",\n    \"idDeDistribuidor\": \"0009205609\",\n    \"idSociedadDestinataria\": \"1\",\n    \"anyoStock\": \"2023\",\n    \"mesStock\": 2,\n    \"idArticulo\": \"5010327755014\",\n    \"existenciaInicial\": -264,\n    \"entradas\": 0,\n    \"salidas\": 54,\n    \"existenciaFinal\": -318\n  }\n]",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/stocks/load",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"stocks",
+												"load"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://distribuidores-api-devdis-7p2sf6.270r75.deu-c1.cloudhub.io/api/v1"
+		},
+		{
+			"key": "basicAuthUsername",
+			"value": "ItIntegracion",
+			"type": "string"
+		},
+		{
+			"key": "basicAuthPassword",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "client_secret",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
